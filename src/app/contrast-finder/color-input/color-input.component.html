@@ -11,6 +11,7 @@
                 'background-color': color
             }"></div>
         </div>
+        <button (click)="emitRecalculate()">Redo</button>
     </div>
     <div class="ratio-input-container">
         <span>Ratio <span class="ratio-span">[1:{{colorForm.get('ratio')?.value | number : '1.2-2'}}]</span></span>

@@ -1,12 +1,15 @@
 <h1>Contrast Checker</h1>
-<p>Ratio: {{luminanceRatio | number : '1.2-2'}}</p>
+<div class="back-ratio">
+    <button class="backButton" (click)="navigateBack()">Back</button>
+    <p>Ratio: {{luminanceRatio | number : '1.2-2'}}</p>
+</div>
 <div class="contrast-container" [style.background-color]="background" [style.border-color]="foreground">
     <h2 [style.color]="foreground">Lorem ipsum, dolor sit amet</h2>
     <p [style.color]="foreground">Consectetur adipisicing elit. Sequi odit unde modi ipsum, dignissimos laboriosam architecto perferendis eaque consequuntur animi?</p>
     <p [style.color]="foreground">Non, cupiditate perspiciatis adipisci expedita quas earum fugit rerum autem, totam nobis reprehenderit numquam unde? Vel neque rerum voluptate quam!</p>
 </div>
 <div class="actions">
-    <button *ngIf="isSaved === false" class="button" (click)="saveColorPair(foreground, background)">Save</button>
-    <button *ngIf="isSaved === true " class="button" (click)="deleteColorPair(foreground, background)">Delete</button>
-    <button class="button" (click)="navigateTo(background, foreground)">Invert</button>
+    <button *ngIf="isSaved === false" (click)="saveColorPair()">Save</button>
+    <button *ngIf="isSaved === true " (click)="deleteColorPair()">Delete</button>
+    <button (click)="invertColors()">Invert</button>
 </div>

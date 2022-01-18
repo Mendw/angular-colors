@@ -18,10 +18,17 @@ export class ContrastFinderComponent {
   ratio : number = 4.5;
   maxRatio : number = 21;
   computedColors : Set<string> = new Set();
+  savedColors : {
+    foreground: string,
+    background: string
+  }[] = []
 
   constructor(private colorService: ColorService, private persistenceService: PersistenceService) {
     this.persistenceService.data.subscribe(data => {
-      if('lastState' in data && data.lastState !== undefined) {
+      if(data.savedColorPairs) {
+        this.savedColors = data.savedColorPairs
+      }
+      if(data.lastState) {
         this.color = data.lastState.color,
         this.grayscale = data.lastState.grayscale,
         this.ratio = data.lastState.ratio,
@@ -63,6 +70,10 @@ export class ContrastFinderComponent {
     if (colorChanged || ratioChanged ) {
       this.computeColors()
     }
+  }
+
+  recalculate() {
+    this.computeColors()
   }
 
   saveToLocalstorage() {

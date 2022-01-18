@@ -51,15 +51,21 @@ export class ContrastDetailsComponent implements OnInit {
     this.persistenceService.loadData()
   }
 
-  navigateTo(foreground : string, background : string) {
-    this.router.navigate(['details', foreground.substring(1), background.substring(1)])
+  invertColors() {
+    this.router.navigate(['details', this.background.substring(1), this.foreground.substring(1)], {
+      replaceUrl: true
+    })
   }
 
-  saveColorPair(foreground : string, background : string) {
-    this.persistenceService.saveColorPair(foreground, background)
+  navigateBack() {
+    this.router.navigate(['..']);
   }
 
-  deleteColorPair(foreground : string, background : string) {
-    this.persistenceService.deleteColorPair(foreground, background);
+  saveColorPair() {
+    this.persistenceService.saveColorPair(this.foreground, this.background)
+  }
+
+  deleteColorPair() {
+    this.persistenceService.deleteColorPair(this.foreground, this.background);
   }
 }

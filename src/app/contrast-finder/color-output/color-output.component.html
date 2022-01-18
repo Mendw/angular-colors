@@ -1,13 +1,28 @@
-<div class="output-container">
-    <p *ngIf="colors.size === 0">Pick a color</p>
-    <div class="computedColorContainer" *ngFor="let color of colors" (click)="navigateTo(current, color)">
+<div class="computedColorsContainer">
+    <p *ngIf="computedColors.size === 0">Uh oh...</p>
+    <div class="computedColorContainer" *ngFor="let computedColor of computedColors" (click)="navigateTo(currentColor, computedColor)">
         <div class="computedColor" [ngStyle]="{
-            'background-color': color
+            'background-color': computedColor
         }">
             <div class="selectedColor" [ngStyle]="{
-                'background-color': current
+                'background-color': currentColor
             }"></div>
         </div>
-        <span>{{color}}</span>
+        <span>{{computedColor}}</span>
+    </div>
+</div>
+<div class="separator"></div>
+<div class="savedColorsContainer">
+    <p *ngIf="savedColors.length === 0">Nothing saved yet</p>
+    <div class="computedColorContainer" *ngFor="let pair of savedColors" (click)="navigateTo(pair.foreground, pair.background)">
+        <div class="computedColor" [ngStyle]="{
+            'background-color': pair.background
+        }">
+            <div class="selectedColor" [ngStyle]="{
+                'background-color': pair.foreground
+            }"></div>
+        </div>
+        <span>{{pair.background}}</span>
+        <span>{{pair.foreground}}</span>
     </div>
 </div>

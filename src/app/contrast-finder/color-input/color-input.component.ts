@@ -20,6 +20,8 @@ export class ColorInputComponent {
     ratio: number
   }>();
 
+  @Output() recalculateButton = new EventEmitter();
+
   ngOnInit() {
     this.colorForm.addControl('color', new FormControl(this.color))
     this.colorForm.addControl('ratio', new FormControl(this.ratio))
@@ -30,6 +32,10 @@ export class ColorInputComponent {
     }) => {
       this.colorParameters.emit(value)
     })
+  }
+
+  emitRecalculate() {
+    this.recalculateButton.emit()
   }
 
   ngOnChanges(changes: SimpleChanges) {

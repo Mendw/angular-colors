@@ -7,12 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./color-output.component.css']
 })
 export class ColorOutputComponent {
-  @Input() colors!: Set<string>;
-  @Input() current!: string;
+  @Input() computedColors!: Set<string>;
+  @Input() currentColor!: string;
+  @Input() savedColors!: {
+    foreground: string,
+    background: string
+  }[];
 
   constructor(private router: Router) {}
 
-  navigateTo(current: string, color: string) {
-    this.router.navigate([`/details/${current.substring(1)}/${color.substring(1)}`])
+  navigateTo(foreground: string, background: string) {
+    this.router.navigate(['details', foreground.substring(1), background.substring(1)])
   }
 }

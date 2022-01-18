@@ -24,3 +24,23 @@
 .contrast-container > p {
     padding: 5px 0px;
 }
+
+.actions {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    width: 75px;
+    padding: 5px;
+
+    margin: 10px;
+    cursor: pointer;
+}
+
+.back-ratio {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
