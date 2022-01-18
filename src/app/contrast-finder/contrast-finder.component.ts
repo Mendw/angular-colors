@@ -18,6 +18,7 @@ export class ContrastFinderComponent {
   ratio : number = 4.5;
   maxRatio : number = 21;
   computedColors : Set<string> = new Set();
+  luminance = 0;
   savedColors : {
     foreground: string,
     background: string
@@ -33,6 +34,7 @@ export class ContrastFinderComponent {
         this.grayscale = data.lastState.grayscale,
         this.ratio = data.lastState.ratio,
         this.maxRatio = data.lastState.maxRatio,
+        this.luminance = data.lastState.luminance,
         this.computedColors = new Set(data.lastState.displayedColors);
       } else {
         this.computeColors()
@@ -40,7 +42,6 @@ export class ContrastFinderComponent {
     })   
   }
   updateTimeout : ReturnType<typeof setTimeout> | null = null
-  luminance = 0;
   
   computeColors() {
     let computed = this.colorService.computeColors(this.color, this.ratio, OPTION_COUNT);    
@@ -85,7 +86,8 @@ export class ContrastFinderComponent {
           displayedColors: Array.from(this.computedColors),
           maxRatio: this.maxRatio,
           ratio: this.ratio,
-          grayscale: this.grayscale
+          grayscale: this.grayscale,
+          luminance: this.luminance
         }
       })
     }, 250)

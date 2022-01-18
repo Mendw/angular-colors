@@ -7,6 +7,7 @@ interface savedState {
   maxRatio: number,
   ratio: number,
   grayscale: string,
+  luminance: number,
 }
 
 interface storedData {
