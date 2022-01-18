@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Courier New', Courier, monospace;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+app-root {
+    flex: 1;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}

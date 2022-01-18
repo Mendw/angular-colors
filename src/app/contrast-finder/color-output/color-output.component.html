@@ -1,0 +1,13 @@
+<div class="output-container">
+    <p *ngIf="colors.size === 0">Pick a color</p>
+    <div class="computedColorContainer" *ngFor="let color of colors" (click)="navigateTo(current, color)">
+        <div class="computedColor" [ngStyle]="{
+            'background-color': color
+        }">
+            <div class="selectedColor" [ngStyle]="{
+                'background-color': current
+            }"></div>
+        </div>
+        <span>{{color}}</span>
+    </div>
+</div>

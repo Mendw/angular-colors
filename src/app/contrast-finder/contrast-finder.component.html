@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<app-color-input 
+  (colorParameters)="onColorParameters($event)"
+  [color]="color"
+  [ratio]="ratio"
+  [grayscale]="grayscale"
+  [luminance]="luminance"
+  [maxRatio]="maxRatio"  
+>
+</app-color-input>  
+
+<app-color-output
+  [colors]="computedColors"
+  [current]="color"
+></app-color-output>

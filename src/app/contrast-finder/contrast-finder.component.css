@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+
+app-color-input {
+    display: flex;
+    flex-direction: column;
+}
+
+app-color-output {
+    display: flex;
+    flex-direction: column;
+}   

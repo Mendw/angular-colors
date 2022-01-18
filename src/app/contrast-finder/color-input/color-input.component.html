@@ -1,0 +1,19 @@
+<form [formGroup]="colorForm" class="color-input">
+    <div class="color-input-container">
+        <input id="color" type="color" formControlName="color">
+        <span>{{colorForm.get('color')?.value}}</span>
+        <div class="luminance-container">
+            <span>{{luminance | number : '1.4-4'}}</span>
+            <div class="luminance-grayscale" [ngStyle]="{
+                'background-color': grayscale
+            }"></div>
+            <div class="luminance-small" [ngStyle]="{
+                'background-color': color
+            }"></div>
+        </div>
+    </div>
+    <div class="ratio-input-container">
+        <span>Ratio <span class="ratio-span">[1:{{colorForm.get('ratio')?.value | number : '1.2-2'}}]</span></span>
+        <input id="ratio" type="range" formControlName="ratio" min="4.5" max={{maxRatio}} step="0.01">
+    </div>
+</form>

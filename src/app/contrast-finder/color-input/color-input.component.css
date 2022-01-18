@@ -1,0 +1,49 @@
+.color-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-input-container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 10px;
+    align-items: center;
+}
+
+.ratio-input-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#color {
+    width: 100px;
+    height: 75px;
+
+    padding: 4px;
+}
+
+.ratio-span {
+    display: inline-block;
+    width: 90px;
+}
+
+.luminance-container {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.luminance-grayscale {
+    width: 12px;
+    height: 12px;
+
+    margin-left: 10px;
+}
+.luminance-small {
+    width: 12px;
+    height: 12px;
+}
