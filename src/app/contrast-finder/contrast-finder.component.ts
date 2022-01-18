@@ -91,4 +91,11 @@ export class ContrastFinderComponent {
     }, 250)
   }
 
+  clearSavedColors() {
+    this.persistenceService.clearSavedColors()
+  }
+
+  clearAll() {
+    this.persistenceService.clearData()
+  }
 }

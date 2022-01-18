@@ -88,6 +88,14 @@ export class PersistenceService {
     this._data$.next(data);
   }
 
+  clearSavedColors() {
+    let data = this._getData();
+    data.savedColorPairs = [];
+
+    this.storage.setItem('color-data', JSON.stringify(data));
+    this._data$.next(data);
+  }
+
   clearData() {
     this.storage.removeItem('color-data');
     this._data$.next({})

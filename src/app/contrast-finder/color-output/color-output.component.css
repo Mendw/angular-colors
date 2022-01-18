@@ -1,4 +1,4 @@
-.computedColorsContainer, .savedColorsContainer {
+.colorList {
     display: flex;
     flex-direction: row;
 
@@ -6,14 +6,14 @@
     padding: 10px;
 }
 
-.computedColorContainer {
+.colorContainer {
     display: flex;
     flex-direction: column;
 
     align-items: center;
 }
 
-.computedColor {
+.backgroundColor {
     width: 80px;
     height: 80px;
     margin: 2px;
@@ -24,7 +24,7 @@
     place-content: center;
 }
 
-.selectedColor {
+.foregroundColor {
     width: 5px;
     height: 5px;
 }
@@ -32,4 +32,18 @@
 .separator {
     height: 1px;
     background-color: rgb(44, 44, 44);
+}
+
+.v-flex {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+button {
+    width: 75px;
+    padding: 5px;
+
+    margin: 10px;
 }

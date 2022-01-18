@@ -1,10 +1,10 @@
-<div class="computedColorsContainer">
+<div class="colorList">
     <p *ngIf="computedColors.size === 0">Uh oh...</p>
-    <div class="computedColorContainer" *ngFor="let computedColor of computedColors" (click)="navigateTo(currentColor, computedColor)">
-        <div class="computedColor" [ngStyle]="{
+    <div class="colorContainer" *ngFor="let computedColor of computedColors" (click)="navigateTo(currentColor, computedColor)">
+        <div class="backgroundColor" [ngStyle]="{
             'background-color': computedColor
         }">
-            <div class="selectedColor" [ngStyle]="{
+            <div class="foregroundColor" [ngStyle]="{
                 'background-color': currentColor
             }"></div>
         </div>
@@ -12,17 +12,20 @@
     </div>
 </div>
 <div class="separator"></div>
-<div class="savedColorsContainer">
-    <p *ngIf="savedColors.length === 0">Nothing saved yet</p>
-    <div class="computedColorContainer" *ngFor="let pair of savedColors" (click)="navigateTo(pair.foreground, pair.background)">
-        <div class="computedColor" [ngStyle]="{
-            'background-color': pair.background
-        }">
-            <div class="selectedColor" [ngStyle]="{
-                'background-color': pair.foreground
-            }"></div>
+<div class="v-flex">
+    <div class="colorList">
+        <p *ngIf="savedColors.length === 0">Nothing saved yet</p>
+        <div class="colorContainer" *ngFor="let pair of savedColors" (click)="navigateTo(pair.foreground, pair.background)">
+            <div class="backgroundColor" [ngStyle]="{
+                'background-color': pair.background
+            }">
+                <div class="foregroundColor" [ngStyle]="{
+                    'background-color': pair.foreground
+                }"></div>
+            </div>
+            <span>{{pair.background}}</span>
+            <span>{{pair.foreground}}</span>
         </div>
-        <span>{{pair.background}}</span>
-        <span>{{pair.foreground}}</span>
     </div>
+    <button *ngIf="savedColors.length !== 0" (click)="clearSavedColors()">Clear</button>
 </div>

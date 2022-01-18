@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,9 +14,15 @@ export class ColorOutputComponent {
     background: string
   }[];
 
+  @Output() clearButton = new EventEmitter()
+
   constructor(private router: Router) {}
 
   navigateTo(foreground: string, background: string) {
     this.router.navigate(['details', foreground.substring(1), background.substring(1)])
+  }
+
+  clearSavedColors() {
+    this.clearButton.emit()
   }
 }
